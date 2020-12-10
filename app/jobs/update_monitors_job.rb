@@ -31,7 +31,7 @@ class UpdateMonitorsJob < ApplicationJob
             userCount = /\| (?<count>\w+) users/.match(monitor['friendly_name']).captures.first 
             m.first.update(available: true, current_users: Integer(userCount))
           else
-            m.first.update(available: false)
+            m.first.update(available: false, current_users: 0)
           end
           puts "Success"
         end
