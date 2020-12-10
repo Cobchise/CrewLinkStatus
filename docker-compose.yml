@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+    web:
+        build:
+            context: .
+            args:
+                environment: development        
+        ports:
+            - "3000:3000"
+        environment: 
+            RAILS_ENV: development
+        volumes:
+            - ".:/app"
+        restart: always
