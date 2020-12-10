@@ -6,7 +6,7 @@
     </div>
     <div class="card-body">
       <div class="row">
-        <div class="col-sm-4 d-flex">
+        <div class="col-sm-12 col-md-12 col-lg-4 d-flex">
           <div class="card bg-dark border-<%= @officialMonitor.available ? 'info' : 'danger' %> m-3 <%= @officialMonitor.available ? 'hoverable' : '' %>">
             <% if @officialMonitor.available %>
               <div class="card-overlay d-flex align-items-center">
@@ -29,7 +29,7 @@
             </div>
           </div>
         </div>
-        <div class="col-sm-8">
+        <div class="col-sm-12 col-md-12 col-lg-8">
           <div class="card text-center bg-dark border-warning m-3">
             <div class="card-header text-warning">
               Community Servers
