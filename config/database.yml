@@ -84,5 +84,3 @@ test:
 production:
   <<: *default
   database: CrewLinkStatus_production
-  username: CrewLinkStatus
-  password: <%= ENV['CREWLINKSTATUS_DATABASE_PASSWORD'] %>
