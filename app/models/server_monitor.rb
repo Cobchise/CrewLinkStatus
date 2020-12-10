@@ -1,0 +1,2 @@
+class ServerMonitor < ApplicationRecord
+end
