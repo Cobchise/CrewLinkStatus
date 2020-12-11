@@ -1,6 +1,6 @@
 <br />
 <p align="center">
-  <h3 align="center">CrewLinkUptime</h3>
+  <h3 align="center">CrewLinkStatus</h3>
 
   <p align="center">
     Web application that tracks the uptime of CrewLink servers 
