@@ -16,8 +16,13 @@ class UpdateMonitorsJob < ApplicationJob
       if remote_url == 'crewlink.glitch.me' 
         m = ServerMonitor.where(url: 'https://crewlink.glitch.me')
         if monitor['status'] == 2
-          userCount = /\| (?<count>\w+) users/.match(monitor['friendly_name']).captures.first 
-          m.first.update(available: true, current_users: Integer(userCount))
+          userCount = /\| (?<count>\w+) users/.match(monitor['friendly_name']) 
+          if userCount.nil?
+            puts "Couldn't retrieve user count from uptimerobot"
+            m.first.update(current_users: 0)
+          else
+            m.first.update(available: true, current_users: Integer(userCount.captures.first))
+          end
         else
           m.first.update(available: false)
         end
@@ -28,8 +33,13 @@ class UpdateMonitorsJob < ApplicationJob
           puts "Failed"
         else
           if monitor['status'] == 2
-            userCount = /\| (?<count>\w+) users/.match(monitor['friendly_name']).captures.first 
-            m.first.update(available: true, current_users: Integer(userCount))
+            userCount = /\| (?<count>\w+) users/.match(monitor['friendly_name']) 
+            if userCount.nil?
+              puts "Couldn't retrieve user count from uptimerobot"
+              m.first.update(current_users: 0)
+            else
+              m.first.update(available: true, current_users: Integer(userCount.captures.first))
+            end
           else
             m.first.update(available: false, current_users: 0)
           end
