@@ -3,9 +3,7 @@
 
   <h3 align="center">CrewLinkStatus</h3>
   
-  <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="CrewLinkStatusDemo.gif" alt="Logo">
-  </a>
+  <img src="CrewLinkStatusDemo.gif" alt="Logo">
 
   <p align="center">
     Web application that tracks the uptime of CrewLink servers 
