@@ -24,7 +24,7 @@ import '../stylesheets/application'
 $(document).on('turbolinks:load', function() {
     var clipboard = new ClipboardJS('.cb-btn')
     clipboard.on('success', function(e) {
-        toastr.success("Text Copied")
+        toastr.success("Voice Server URL Copied. Paste this into CrewLink")
         e.clearSelection();
     });
 
