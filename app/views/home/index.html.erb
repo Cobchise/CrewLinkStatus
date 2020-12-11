@@ -26,7 +26,7 @@
               <h6 class="card-title text-<%= @officialMonitor.available ? 'info' : 'danger' %>">Ottomated <br /><br /> <i class="fas fa-user"></i> <%= @officialMonitor.current_users %></h6>
             </div>
             <div class="card-footer">
-              <small class="text-muted"><%= @officialMonitor.updated_at %></small>
+              <small class="text-muted">Last Updated At: <%= @officialMonitor.updated_at %></small>
             </div>
           </div>
         </div>
@@ -55,7 +55,7 @@
                         <p class="card-text ml-auto"><i class="fas fa-user"></i> <%= monitor.current_users %></p>
                       </div>
                       <div class="card-footer">
-                        <small class="text-muted"><%= monitor.updated_at %></small>
+                        <small class="text-muted">Last Updated At: <%= monitor.updated_at %></small>
                       </div>
                     </div>
                   <% end %>
