@@ -52,6 +52,6 @@ class UpdateMonitorsJob < ApplicationJob
   private
 
   def schedule_update
-    UpdateMonitorsJob.set(wait: 20.minutes).perform_later
+    UpdateMonitorsJob.set(wait: 5.minutes).perform_later
   end
 end
