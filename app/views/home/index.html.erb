@@ -54,7 +54,7 @@
                             OFFLINE
                           <% end %>
                         </a>
-                        <button id="copy-button-<%= monitor.id %>" class="cb-btn btn btn-outline-<%= monitor.available ? 'success' : 'danger' %>" data-clipboard-text="<%= monitor.url %>"><i class="fas fa-copy"></i></button>
+                        <button id="copy-button-<%= monitor.id %>" class="cb-btn btn btn-sm btn-outline-<%= monitor.available ? 'success' : 'danger' %> mt-2" data-clipboard-text="<%= monitor.url %>"><i class="fas fa-copy"></i></button>
                       </div>
                       <div class="card-body text-info d-sm-flex align-items-center">
                         <h6 class="card-title m-0"><%= monitor.name %></h6>
