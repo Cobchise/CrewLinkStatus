@@ -2,6 +2,8 @@ import consumer from "./consumer"
 
 consumer.subscriptions.create("LandingChannel", {
   connected() {
+    console.log("%c       CrewLink Status", "font-size: 1.5em; color: purple; font-weight: bold; line-height: 50px; background-repeat: no-repeat; background-size: 50px 50px; background-image: url('https://github.com/ottomated/CrewLink/raw/master/logo.png')")
+    console.log("%c Release: v1.0.0", "color: purple; font-weight: bold")
   },
 
   disconnected() {
