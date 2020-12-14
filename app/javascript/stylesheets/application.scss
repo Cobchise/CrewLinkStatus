@@ -41,6 +41,45 @@ body {
     background: rgba(0, 0, 0, 0.5);
 }
 
+.landing-footer {
+  padding: 30px 0;
+}
+
+.landing-footer .social-networks > li {
+    display: inline-block;
+    font-size: 14px;
+}
+
+.landing-footer .social-networks > li a {
+    display: inline-block;
+    line-height: 24px;
+    text-align: center;
+    font-size: 14px;
+    margin-right: 3px;
+    padding: 6px 6px 2px 6px;
+    width: 36px;
+}
+
+.copyright {
+  font-size: 14px;
+  line-height: 24px;
+  padding-top: 6px;
+}
+
+a, .link {
+    color: #477372;
+    will-change: color;
+    text-decoration: none;
+    cursor: pointer;
+    -webkit-transition: color 0.08s ease-out,background-color 0.08s ease-out;
+    transition: color 0.08s ease-out,background-color 0.08s ease-out;
+}
+
+a:hover, .link:hover {
+    color: #6caead;
+    text-decoration: none;
+}
+
 .card-columns {
   @include media-breakpoint-only(sm) {
     column-count: 1;

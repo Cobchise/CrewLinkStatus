@@ -108,9 +108,13 @@ $(document).on('turbolinks:load', function() {
         // Event handling
         function addListeners() {
             if(!('ontouchstart' in window)) {
+                window.removeEventListener('mousemove', mouseMove);
                 window.addEventListener('mousemove', mouseMove);
             }
+            window.removeEventListener('scroll', scrollCheck);
             window.addEventListener('scroll', scrollCheck);
+
+            window.removeEventListener('resize', resize);
             window.addEventListener('resize', resize);
         }
 
@@ -137,10 +141,13 @@ $(document).on('turbolinks:load', function() {
         function resize() {
             width = Math.min(window.innerWidth, document.documentElement.clientWidth);
             //height = window.innerHeight;
-            height = 335;
-            headerOverlay.style.height = height+'px';
+            //height = 335;
+            //headerOverlay.style.height = height+'px';
             canvas.width = width;
             canvas.height = height;
+            initHeader();
+            initAnimation();
+            addListeners();
         }
 
         // animation

@@ -1,19 +1,19 @@
 <br />
 <p align="center">
 
-  <h3 align="center">CrewLinkStatus</h3>
+  <h3 align="center">CrewLink Status</h3>
   
   <img src="CrewLinkStatusDemo.gif" alt="Logo">
 
   <p align="center">
-    Web application that tracks the uptime of CrewLink servers 
+    Web application that tracks the uptime and status of CrewLink servers 
     <br />
     <br />
     <a href="https://uptime.among-us.tech">View Site</a>
     ·
-    <a href="https://github.com/Cobchise/CrewLinkUptime/issues">Report Bug</a>
+    <a href="https://github.com/Cobchise/CrewLinkStatus/issues">Report Bug</a>
     ·
-    <a href="https://github.com/Cobchise/CrewLinkUptime/issues">Request Feature</a>
+    <a href="https://github.com/Cobchise/CrewLinkStatus/issues">Request Feature</a>
   </p>
 </p>
 
@@ -57,7 +57,7 @@
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/Cobchise/CrewLinkUptime.git
+   git clone https://github.com/Cobchise/CrewLinkStatus.git
    ```
 2. Install a postgresql server on the Docker host
 3. Set up a https reverse proxy (such as nginx) to redirect to port 3000 on the Docker host
@@ -74,7 +74,7 @@
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https://github.com/Cobchise/CrewLinkUptime/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/Cobchise/CrewLinkStatus/issues) for a list of proposed features (and known issues).
 
 <!-- CONTRIBUTING -->
 ## Contributing

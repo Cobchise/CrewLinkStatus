@@ -7,23 +7,29 @@
     <div class="card-body">
       <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-4 d-flex">
-          <div class="card bg-dark border-<%= @officialMonitor.available ? 'info' : 'danger' %> m-3 <%= @officialMonitor.available ? 'hoverable' : '' %>">
-            <% if @officialMonitor.available %>
-              <div class="card-overlay d-flex flex-column align-items-center justify-content-center">
-                <p class="text-white text-center w-100"><a href="<%= @officialMonitor.url %>" class="text-<%= @officialMonitor.available ? 'info' : 'danger' %>"><%= @officialMonitor.url %></a></p>
-                <button class="cb-btn btn btn-outline-<%= @officialMonitor.available ? 'info' : 'danger' %>" data-clipboard-text="<%= @officialMonitor.url %>"><i class="fas fa-copy"></i></button>
-              </div>
-            <% else %>
-              <div class="card-offline-overlay d-flex align-items-center">
-                <p class="text-danger text-center w-100">OFFLINE</p>
-              </div>
-            <% end %>
+          <div id="outer-card-<%= @officialMonitor.id %>" class="card bg-dark border-<%= @officialMonitor.available ? 'info' : 'danger' %> m-3 <%= @officialMonitor.available ? 'hoverable' : '' %>">
+            <div id="inner-card-<%= @officialMonitor.id %>" class="<%= @officialMonitor.available ? 'card-overlay' : 'card-offline-overlay' %> d-flex flex-column align-items-center justify-content-center">
+              <a id="card-text-<%= @officialMonitor.id %>" href="<%= @officialMonitor.url %>" class="text-center w-100 text-<%= @officialMonitor.available ? 'info' : 'danger' %>">
+                <% if @officialMonitor.available %>
+                  <%= @officialMonitor.url %>
+                <% else %>
+                  OFFLINE
+                <% end %>
+              </a>
+              <button id="copy-button-<%= @officialMonitor.id %>" class="cb-btn btn btn-sm btn-outline-<%= @officialMonitor.available ? 'info' : 'danger' %> mt-2" data-clipboard-text="<%= @officialMonitor.url %>"><i class="fas fa-copy"></i></button>
+            </div>
             <div class="card-header text-<%= @officialMonitor.available ? 'info' : 'danger' %>">
               Official Server
             </div>
             <img class="card-img-top" src="https://github.com/ottomated/CrewLink/raw/master/logo.png" class="img-fluid" alt="CrewLink Logo">
             <div class="card-body">
-              <h6 class="card-title text-<%= @officialMonitor.available ? 'info' : 'danger' %>">Ottomated <br /><br /> <i class="fas fa-user"></i> <%= @officialMonitor.current_users %></h6>
+              <h6 class="card-title text-<%= @officialMonitor.available ? 'info' : 'danger' %>">
+                Ottomated 
+                <br />
+                <br /> 
+                <i class="fas fa-user"></i> 
+                <span id="userCount-<%= @officialMonitor.id %>"><%= @officialMonitor.current_users %></span>
+              </h6>
             </div>
             <div class="card-footer">
               <small class="text-muted">Last Updated At: <%= @officialMonitor.updated_at %></small>
@@ -39,20 +45,21 @@
               <div class="card-columns">
                 <% @monitors.each do |monitor| %>
                   <% unless monitor.official %>
-                    <div class="card text-left bg-dark border-<%= monitor.available ? 'success' : 'danger' %> h-100 w-90 <%= monitor.available ? 'hoverable' : '' %>">
-                      <% if monitor.available %>
-                        <div class="card-overlay d-flex flex-column align-items-center justify-content-center">
-                          <p id="<%= monitor.id %>" class="text-primary text-center w-100"><a href="<%= monitor.url %>" class="text-<%= monitor.available ? 'success' : 'danger' %>"><%= monitor.url %></a></p>
-                          <button class="cb-btn btn btn-outline-<%= monitor.available ? 'success' : 'danger' %>" data-clipboard-text="<%= monitor.url %>"><i class="fas fa-copy"></i></button>
-                        </div>
-                      <% else %>
-                        <div class="card-offline-overlay d-flex align-items-center">
-                          <p class="text-danger text-center w-100">OFFLINE</p>
-                        </div>
-                      <% end %>
+                    <div id="outer-card-<%= monitor.id %>" class="card text-left bg-dark border-<%= monitor.available ? 'success' : 'danger' %> h-100 w-90 <%= monitor.available ? 'hoverable' : '' %>">
+                      <div id="inner-card-<%= monitor.id %>" class="<%= monitor.available ? 'card-overlay' : 'card-offline-overlay' %> d-flex flex-column align-items-center justify-content-center">
+                        <a id="card-text-<%= monitor.id %>" href="<%= monitor.url %>" class="text-center w-100 text-<%= monitor.available ? 'success' : 'danger' %>">
+                          <% if monitor.available %>
+                            <%= monitor.url %>
+                          <% else %>
+                            OFFLINE
+                          <% end %>
+                        </a>
+                        <button id="copy-button-<%= monitor.id %>" class="cb-btn btn btn-sm btn-outline-<%= monitor.available ? 'success' : 'danger' %> mt-2" data-clipboard-text="<%= monitor.url %>"><i class="fas fa-copy"></i></button>
+                      </div>
                       <div class="card-body text-info d-sm-flex align-items-center">
                         <h6 class="card-title m-0"><%= monitor.name %></h6>
-                        <p class="card-text ml-auto"><i class="fas fa-user"></i> <%= monitor.current_users %></p>
+                        <p class='card-text m-0 ml-auto'><%= sanitize printRegion(monitor.region, monitor.id) %></p>
+                        <p class="card-text ml-2"><i class="fas fa-user"></i> <span id="userCount-<%= monitor.id %>"><%= monitor.current_users %></span></p>
                       </div>
                       <div class="card-footer">
                         <small class="text-muted">Last Updated At: <%= monitor.updated_at %></small>
