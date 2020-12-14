@@ -12,8 +12,6 @@ consumer.subscriptions.create("LandingChannel", {
       toastr.warning(data.content)
     }     
     
-    console.log(data)
-
     if(data.msg_type == 'success') {
       if(data.display) {
         toastr.success(data.content)
