@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_14_231037) do
+ActiveRecord::Schema.define(version: 2020_12_15_221050) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,9 +21,22 @@ ActiveRecord::Schema.define(version: 2020_12_14_231037) do
     t.integer "current_users"
     t.text "description"
     t.boolean "available"
-    t.datetime "availableSince"
+    t.datetime "last_online_at"
+    t.float "uptime"
     t.string "region"
     t.boolean "official"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "server_monitors_versions", id: false, force: :cascade do |t|
+    t.bigint "server_monitor_id", null: false
+    t.bigint "server_version_id", null: false
+  end
+
+  create_table "server_versions", force: :cascade do |t|
+    t.string "name"
+    t.boolean "latest", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

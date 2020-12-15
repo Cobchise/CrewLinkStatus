@@ -6,7 +6,8 @@ class CreateServerMonitors < ActiveRecord::Migration[6.0]
       t.integer :current_users
       t.text :description
       t.boolean :available
-      t.datetime :availableSince
+      t.datetime :last_online_at
+      t.float :uptime 
       t.string :region
       t.boolean :official
 

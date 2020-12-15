@@ -1,9 +1,11 @@
+[![GPL-3.0 License][license-shield]][license-url]
+
 <br />
 <p align="center">
 
+  <img src="./app/assets/images/StatusLogo.png" width="160" height="160">
+
   <h3 align="center">CrewLink Status</h3>
-  
-  <img src="CrewLinkStatusDemo.gif" alt="Logo">
 
   <p align="center">
     Web application that tracks the uptime and status of CrewLink servers 
@@ -43,6 +45,8 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
+
+<img src="CrewLinkStatusDemo.gif" alt="Logo">
 
 ### Built With
 
@@ -102,3 +106,6 @@ Cobchise - [@cobchise_sec](https://twitter.com/cobchise_sec)
 
 * [Ottomated](https://twitch.tv/ottomated) - Creator of CrewLink
 * [Innersloth](https://innersloth.com) - Creators of Among Us
+
+[license-shield]: https://img.shields.io/github/license/Cobchise/CrewLinkStatus.svg?style=flat-square 
+[license-url]: https://github.com/Cobchise/CrewLinkStatus/blob/master/LICENSE

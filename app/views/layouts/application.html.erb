@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>CrewLink Status</title>
-    <link rel="icon" href="https://github.com/ottomated/CrewLink/raw/master/logo.png" type="image/x-icon">
+    <link rel="icon" href="<%= image_url 'StatusLogo.png' %>" type="image/x-icon">
     <meta property="og:title" content="CrewLink Status">
     <meta property="og:description" content="Web application that tracks uptime and status of public CrewLink servers">
     <meta property="og:image" content="https://github.com/ottomated/CrewLink/raw/master/logo.png">
@@ -24,6 +24,38 @@
           toastr['<%= type %>']('<%= f[1] %>');
         <% end %>
       </script>
+    <% end %>
+
+    <% if user_signed_in? %>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">
+          <%= image_tag "StatusLogo.png", alt: "CrewLink Status Logo", width: "30", height: "30" %>
+        </a>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item <%= 'active' if current_page?(root_path) %> ">
+              <a class="nav-link" href="/">Landing <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item <%= 'active' if current_page?(dashboard_index_path) %>">
+              <a class="nav-link" href="/dashboard">Admin Dashboard</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <li class="nav-item dropdown bg-dark active">
+              <a class="nav-link dropdown-toggle text-info" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="sr-only">(current)</span>
+                <%= fa_icon 'user-circle' %>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right bg-dark" aria-labelledby="navbarDropdown">
+                <p class="dropdown-item"><%= current_user.email %></p>
+                <div class="dropdown-divider"></div>
+                <%= link_to "Log out", destroy_session_path(current_user), method: :delete, data: { confirm: "Are you sure?" }, class: "dropdown-item" %>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
     <% end %>
 
     <%= yield %>
