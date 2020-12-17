@@ -74,6 +74,14 @@
    ```sh
    docker-compose -f docker-compose.yml -f docker-compose-production.uml exec web rails assets:precompile
    ```
+5. Run redis
+   ```
+   redis-server
+   ```
+6. Run sidekiq
+   ```
+   sidekiq
+   ```
 
 <!-- ROADMAP -->
 ## Roadmap
