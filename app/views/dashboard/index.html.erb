@@ -47,4 +47,9 @@
             </tbody>
         </table>
     </div>
+
+    <%= bar_chart @userCountData, xtitle: 'User Count', ytitle: 'Monitor Name', colors: ['#17a2b8', '#17a2b8'], library: { 
+        backgroundColor: '', 
+        vAxis: { textStyle: { color: '#17a2b8' }, titleTextStyle: { color: '#17a2b8' }, gridlines: { color: '' } },  
+        hAxis: { textStyle: { color: '#17a2b8' }, titleTextStyle: { color: '#17a2b8' } } } %>
 </div>
