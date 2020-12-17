@@ -6,8 +6,6 @@ class UpdateAllServerMonitorsJob < ApplicationJob
     ServerMonitor.all.each do |monitor|
       UpdateServerMonitorJob.perform_now(monitor)
     end
-
-    schedule_update
   end
 
   private
