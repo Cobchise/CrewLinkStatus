@@ -62,7 +62,7 @@
                         <p class="card-text ml-2"><i class="fas fa-user"></i> <span id="userCount-<%= monitor.id %>"><%= monitor.current_users %></span></p>
                       </div>
                       <div class="card-footer">
-                        <small class="text-muted">Last Updated At: <%= monitor.updated_at %></small>
+                        <small class="text-muted">Last updated <%= time_ago_in_words(monitor.updated_at) %> ago</small>
                       </div>
                     </div>
                   <% end %>
