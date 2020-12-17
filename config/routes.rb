@@ -4,5 +4,13 @@ Rails.application.routes.draw do
 
   resources :dashboard, only: [:index]
 
+  resources :server_monitors do
+    collection do
+      get :update_monitor 
+    end
+  end
+  
+  mount ActionCable.server => '/cable'
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

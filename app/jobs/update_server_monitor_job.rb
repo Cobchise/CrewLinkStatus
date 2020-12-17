@@ -31,7 +31,7 @@ class UpdateServerMonitorJob < ApplicationJob
       available: request.code == 200 ? true : false,
       current_users: current_users 
     }
-    
+
     # Clone current state of monitor data for later comparison (to allow smarter broadcast messages) then construct hash with updated monitor data
     old_monitor_data = monitor.clone
     

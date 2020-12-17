@@ -3,7 +3,9 @@ class UpdateAllServerMonitorsJob < ApplicationJob
   after_perform :schedule_update 
 
   def perform
-    schedule_update
+    ServerMonitor.all.each do |monitor|
+      UpdateServerMonitorJob.perform_now(monitor)
+    end
   end
 
   private

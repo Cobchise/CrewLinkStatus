@@ -1,0 +1,50 @@
+<div id="header-overlay" class="container">
+    <canvas id="dot-canvas" class="position-absolute"></canvas>
+    <div class="card text-center bg-dark border-info m-3">
+        <div class="card-header text-info">
+        CrewLink Server List 
+        </div>
+
+        <div class="row m-0">
+            <div class="col-md-2 p-1 text-left">
+                <%= link_to new_server_monitor_path, class: "btn btn-sm btn-outline-info" do %>
+                    <%= fa_icon 'plus' %>
+                    New Monitor 
+                <% end %>
+            </div>
+
+            <div class="col-md-10">
+                <%= search_form_for @search, url: dashboard_index_path, class: "form-inline" do |f| %>
+                    <%= f.search_field :name_or_url_cont, class: "form-control mr-1 ml-auto" %>
+                    <%= f.submit class: "btn btn-sm btn-outline-info mr-1" %>
+                    <%= link_to "Reset Search", dashboard_index_path, class: "btn btn-sm btn-outline-warning" %>
+                <% end %>
+            </div>
+        </div>
+
+        <table class="table table-striped table-hover table-sm">
+            <thead>
+                <tr>
+                    <th scope="col"><%= sort_link @search, :name, default_order: :desc %></th>
+                    <th scope="col"><%= sort_link @search, :url, "URL" %></th>
+                    <th scope="col"><%= sort_link @search, :official, "Server Type" %></th>
+                    <th scope="col"><%= sort_link @search, :current_users, "Current Users" %></th>
+                    <th scope="col"><%= sort_link @search, :available, "Online" %></th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @monitors.each do |monitor| %>
+                    <tr>
+                        <td><%= link_to monitor.name, server_monitor_path(monitor), class: "text-#{monitor.available ? 'success' : 'danger'}" %></td>
+                        <td><%= monitor.url %></td>
+                        <td><%= monitor.official ? 'Official' : 'Community' %></td>
+                        <td><%= monitor.current_users %></td>
+                        <td><%= monitor.available %></td>
+                        <td><%= link_to fa_icon('sync'), controller: "server_monitors", action: "update_monitor", id: monitor.id %></td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>

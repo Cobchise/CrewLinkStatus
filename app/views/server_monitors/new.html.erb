@@ -1,0 +1,40 @@
+<div id="header-overlay" class="container pt-3">
+    <canvas id="dot-canvas" class="position-absolute"></canvas>
+
+    <div class="row align-items-center h-100">
+    <div class="col-md-6 offset-md-3">
+    <%= form_for @monitor, html: { class: 'form-signin card bg-dark border-info text-info p-0' } do |f| %>
+        <div class="card-header text-info text-center">
+        New Server Monitor 
+        </div>
+
+        <div class="form-label-group m-3">
+            <%= f.text_field :name, autofocus: true, class: "form-control", required: true, placeholder: "Name (Cobchise)" %>
+            <%= f.label :name, "Name (Cobchise)" %>
+        </div>
+
+        <div class="form-label-group m-3">
+            <%= f.text_field :url, class: "form-control", required: true, placeholder: "URL (https://crewlink.among-us.tech)" %>
+            <%= f.label :url, "URL (https://)" %>
+        </div>
+
+        <div class="form-label-group m-3">
+            <%= f.text_field :description, class: "form-control", placeholder: "Description (Cobchise's CrewLink Server)" %>
+            <%= f.label :description, "Description (Cobchise's Server)" %>
+        </div>
+
+        <div class="form-label m-3">
+            <%= f.label :region %>
+            <%= f.collection_select :region, @regions, :first, :last, { include_blank: false, selected: '' }, class: "form-control" %>
+        </div>
+
+        <div class="form-group m-3">
+            <%= f.label :official, "Server Type" %>
+            <%= f.collection_select :official, @server_types, :first, :last, { include_blank: false, selected: '' }, class: "form-control" %>
+        </div>
+
+        <%= f.submit "Submit", class: "btn btn-lg btn-outline-info m-3" %>
+    <% end %>
+    </div>
+    </div>
+</div>
