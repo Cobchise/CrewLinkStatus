@@ -1,9 +1,36 @@
 @import "~bootstrap/scss/bootstrap";
+@import "./devise.scss";
+@import "./table.scss";
+@import "./server_monitors.scss";
 @import "@fortawesome/fontawesome-free";
 @import "toastr";
 
 body {
     background-color: #23272a;
+}
+
+.dropdown-divider {
+  border-color: #17a2b8 !important;
+}
+
+.dropdown-item {
+  color: #17a2b8 !important;
+}
+
+.dropdown-item:hover, .dropdown-item:focus {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.active {
+  font-weight: 700; 
+}
+
+.nav-link {
+  color: #17a2b8 !important;
+}
+
+.nav-link:hover {
+  color: #0f6674 !important; 
 }
 
 .hoverable:hover {

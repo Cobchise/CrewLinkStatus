@@ -28,6 +28,18 @@ gem 'redis', '~> 4.0'
 # UptimeRobot
 gem 'uptimerobot'
 
+# Authentication
+gem 'devise'
+
+# Font Awesome
+gem 'font_awesome5_rails'
+
+# HTTParty
+gem 'httparty'
+
+# Searching and filtering
+gem 'ransack'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 

@@ -24,10 +24,15 @@ import '../stylesheets/application'
 $(document).on('turbolinks:load', function() {
     var clipboard = new ClipboardJS('.cb-btn')
     clipboard.on('success', function(e) {
-        toastr.success("Voice Server URL Copied. Paste this into CrewLink")
+        toastr.success("Voice Server URL Copied. Paste this into CrewLink. Ensure all players are using the same CrewLink server!")
         e.clearSelection();
     });
 
+    
+    var error_field = $('.field_with_errors input:first')
+    if (error_field) {
+        error_field.addClass('is-invalid')
+    }                        
 
     (function() {
 

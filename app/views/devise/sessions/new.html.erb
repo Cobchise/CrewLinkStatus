@@ -1,0 +1,34 @@
+<div id="header-overlay" class="container pt-5">
+  <canvas id="dot-canvas" class="position-absolute"></canvas>
+  <div class="row align-items-center h-100">
+    <div class="col">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'form-signin card bg-dark border-info p-5 text-info'}) do |f| %>
+        <div class="text-center mb-4">
+          <h1 class="h3 mb-3 font-weight-normal">CrewLink Status</h1>
+        </div>
+      
+        <div class="form-label-group">
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", required: true, placeholder: "Email Address", class: "form-control" %>
+          <%= f.label :email %>
+        </div>
+      
+        <div class="form-label-group">
+          <%= f.password_field :password, autocomplete: "current-password", required: true, placeholder: "Password", class: "form-control" %>
+          <%= f.label :password %>
+        </div>
+      
+        <% if devise_mapping.rememberable? %>
+          <div class="checkbox mb-3">
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me %>
+          </div>
+        <% end %>
+      
+        <div class="actions">
+          <%= f.submit "Log in", class: "btn btn-lg btn-outline-info btn-block" %>
+          <%= render "devise/shared/links" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
