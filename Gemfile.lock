@@ -94,6 +94,8 @@ GEM
       railties (>= 4.2)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    groupdate (5.2.1)
+      activesupport (>= 5)
     httparty (0.18.1)
       mime-types (~> 3.0)
       multi_xml (>= 0.5.2)
@@ -252,6 +254,7 @@ DEPENDENCIES
   chartkick
   devise
   font_awesome5_rails
+  groupdate
   httparty
   jbuilder (~> 2.7)
   listen (~> 3.2)

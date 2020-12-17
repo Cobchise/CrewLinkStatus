@@ -19,6 +19,16 @@ class ServerMonitor < ApplicationRecord
             data = v.reify 
             userCount[data.updated_at] = data.current_users
         end
-        return userCount
+        userCount
+    end
+
+    def get_max_usercount_history
+        maxUserCount = {}
+        self.versions.each do |v|
+            temp = v.reify
+            maxUserCount[v.created_at] = temp.current_users
+        end
+
+        maxUserCount.group_by_hour_of_day { |k, v| k }.map { |k, v| [k, v.map(&:last).max] }
     end
 end
