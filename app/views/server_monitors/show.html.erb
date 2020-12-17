@@ -1,0 +1,16 @@
+<div id="header-overlay" class="container pt-3">
+    <canvas id="dot-canvas" class="position-absolute"></canvas>
+
+    <div class="card bg-dark border-info text-info">
+        <div class="card-header text-center">
+            <%= @monitor.name %>
+        </div>
+
+        <div class="card-body p-3">
+            <%= line_chart @monitor.get_usercount_history, xtitle: 'Time', ytitle: 'User Count', colors: ['#17a2b8', '#17a2b8'], library: { 
+                backgroundColor: '', 
+                vAxis: { textStyle: { color: '#17a2b8' }, titleTextStyle: { color: '#17a2b8' }, gridlines: { color: '' } },  
+                hAxis: { textStyle: { color: '#17a2b8' }, titleTextStyle: { color: '#17a2b8' } } } %>
+        </div>
+    </div>
+</div>

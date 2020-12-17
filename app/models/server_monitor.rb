@@ -12,4 +12,13 @@ class ServerMonitor < ApplicationRecord
     def update_monitor 
         UpdateServerMonitorJob.perform_now(self)
     end
+
+    def get_usercount_history
+        userCount = {}
+        self.versions.each do |v|
+            data = v.reify 
+            userCount[data.updated_at] = data.current_users
+        end
+        return userCount
+    end
 end
