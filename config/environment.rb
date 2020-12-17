@@ -4,4 +4,4 @@ require_relative 'application'
 # Initialize the Rails application.
 Rails.application.initialize!
 
-UpdateAllServerMonitorsJob.perform_now
+UpdateAllServerMonitorsJob.set(wait: 5.minutes).perform_later if defined? Rails::Server
