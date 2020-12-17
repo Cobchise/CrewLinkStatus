@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :dashboard, only: [:index]
 
-  resources :server_monitors, only: [:index, :new, :create] do
+  resources :server_monitors, only: [:index, :new, :create, :show] do
     collection do
       get :update_monitor 
     end

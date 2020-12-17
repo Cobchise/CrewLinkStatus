@@ -36,7 +36,7 @@
             <tbody>
                 <% @monitors.each do |monitor| %>
                     <tr>
-                        <td><%= link_to monitor.name, server_monitors_path(monitor), class: "text-#{monitor.available ? 'success' : 'danger'}" %></td>
+                        <td><%= link_to monitor.name, server_monitor_path(monitor), class: "text-#{monitor.available ? 'success' : 'danger'}" %></td>
                         <td><%= monitor.url %></td>
                         <td><%= monitor.official ? 'Official' : 'Community' %></td>
                         <td><%= monitor.current_users %></td>
@@ -47,4 +47,9 @@
             </tbody>
         </table>
     </div>
+
+    <%= bar_chart @userCountData, xtitle: 'User Count', ytitle: 'Monitor Name', colors: ['#17a2b8', '#17a2b8'], library: { 
+        backgroundColor: '', 
+        vAxis: { textStyle: { color: '#17a2b8' }, titleTextStyle: { color: '#17a2b8' }, gridlines: { color: '' } },  
+        hAxis: { textStyle: { color: '#17a2b8' }, titleTextStyle: { color: '#17a2b8' } } } %>
 </div>

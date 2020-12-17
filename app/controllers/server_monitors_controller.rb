@@ -3,6 +3,7 @@ class ServerMonitorsController < ApplicationController
     end
 
     def show
+        @monitor = ServerMonitor.find(params[:id])
     end
 
     def new

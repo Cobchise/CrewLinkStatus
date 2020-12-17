@@ -40,6 +40,12 @@ gem 'httparty'
 # Searching and filtering
 gem 'ransack'
 
+# Model tracking
+gem 'paper_trail'
+
+# Charting Lib
+gem 'chartkick'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 

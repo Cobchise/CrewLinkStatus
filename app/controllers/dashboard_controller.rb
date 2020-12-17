@@ -4,5 +4,10 @@ class DashboardController < ApplicationController
     def index
         @search = ServerMonitor.ransack(params[:q])
         @monitors = @search.result.includes(:server_versions)
+
+        @userCountData = {}
+        @monitors.each do |m|
+            @userCountData[m.name] = m.current_users
+        end
     end
 end
