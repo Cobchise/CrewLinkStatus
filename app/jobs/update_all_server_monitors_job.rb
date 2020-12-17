@@ -12,8 +12,6 @@ class UpdateAllServerMonitorsJob < ApplicationJob
 
   # Schedule an update of all monitors in the db 
   def schedule_update
-    ServerMonitor.all.each do |monitor|
-      UpdateServerMonitorJob.set(wait: 5.minutes).perform_later(monitor)
-    end
+    UpdateAllServerMonitorsJob.set(wait: 5.minutes).perform_later
   end
 end

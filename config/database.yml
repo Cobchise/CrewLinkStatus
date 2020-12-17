@@ -84,3 +84,4 @@ test:
 production:
   <<: *default
   database: CrewLinkStatus_production
+  host: <%= ENV['DATABASE_HOST'] %>
