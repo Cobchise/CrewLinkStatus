@@ -9,5 +9,10 @@ class DashboardController < ApplicationController
         @monitors.each do |m|
             @userCountData[m.name] = m.current_users
         end
+
+        @totalUserCounts = {}
+        @monitors.each do |m|
+            @totalUserCounts[m.name] = m.get_max_usercount_history
+        end
     end
 end

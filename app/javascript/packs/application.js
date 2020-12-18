@@ -29,6 +29,7 @@ $(document).on('turbolinks:load', function() {
         e.clearSelection();
     });
 
+    $('[data-toggle="tooltip"]').tooltip()
     
     var error_field = $('.field_with_errors input:first')
     if (error_field) {
