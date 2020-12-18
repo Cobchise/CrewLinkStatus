@@ -1,6 +1,6 @@
 class ServerMonitor < ApplicationRecord
     has_and_belongs_to_many :server_versions
-    has_paper_trail only: [:current_users]
+    has_paper_trail only: [:current_users, :enabled]
     validates :name, :url, presence: true 
     validates :name, :url, uniqueness: true
     validates_format_of :url, with: /\Ahttps:\/\/(\w+.){2,4}\z/, message: 'Ensure your url starts with https://' 
