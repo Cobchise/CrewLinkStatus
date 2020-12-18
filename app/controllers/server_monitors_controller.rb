@@ -30,10 +30,7 @@ class ServerMonitorsController < ApplicationController
     end
 
     def update
-        @monitor = ServerMonitor.new monitor_params
-
-        if @monitor.valid?
-            @monitor.save
+        if @monitor.update(monitor_params) 
             flash[:success] = 'Server Monitor successfully updated'
             redirect_to dashboard_index_path
         else
@@ -59,7 +56,7 @@ class ServerMonitorsController < ApplicationController
     private
 
     def monitor_params 
-        params.require(:server_monitor).permit(:name, :url, :description, :region, :official)
+        params.require(:server_monitor).permit(:name, :url, :description, :enabled, :region, :official)
     end
 
     def set_monitor

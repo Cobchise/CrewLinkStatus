@@ -45,6 +45,7 @@
                     <th scope="col"><%= sort_link @search, :current_users, "Current Users" %></th>
                     <th scope="col"><%= sort_link @search, :region, "Region" %></th>
                     <th scope="col"><%= sort_link @search, :available, "Online" %></th>
+                    <th scope="col"><%= sort_link @search, :enabled, "Enabled" %></th>
                     <th scope="col">Actions</th>
                 </tr>
             </thead>
@@ -57,6 +58,7 @@
                         <td><%= monitor.current_users %></td>
                         <td><%= monitor.region %></td>
                         <td><span class="badge badge-<%= monitor.available ? 'success' : 'danger' %>"><%= monitor.available ? 'Online' : 'Offline' %></span></td>
+                        <td><span class="badge badge-<%= monitor.enabled ? 'success' : 'danger' %>"><%= monitor.enabled ? 'Enabled' : 'Disabled' %></span></td>
                         <td>
                             <%= link_to fa_icon('eye'), { controller: "server_monitors", action: "show", id: monitor.id }, { class: 'text-info', title: 'View Monitor', data: { toggle: 'tooltip', placement: 'right' } } %>
                             <%= link_to fa_icon('edit'), { controller: "server_monitors", action: "edit", id: monitor.id }, { class: 'text-info', title: 'Edit Monitor', data: { toggle: 'tooltip', placement: 'right' } } %>

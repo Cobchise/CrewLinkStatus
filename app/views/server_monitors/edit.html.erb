@@ -23,6 +23,11 @@
             <%= f.label :description, "Description (Cobchise's Server)" %>
         </div>
 
+        <div class="checkbox m-3">
+            <%= f.check_box :enabled %>
+            <%= f.label :enabled %>
+        </div>
+
         <div class="form-label m-3">
             <%= f.label :region %>
             <%= f.collection_select :region, @regions, :first, :last, { include_blank: false, selected: @monitor.region }, class: "form-control" %>
