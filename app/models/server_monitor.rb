@@ -4,7 +4,23 @@ class ServerMonitor < ApplicationRecord
     validates :name, :url, presence: true 
     validates :name, :url, uniqueness: true
     validates_format_of :url, with: /\Ahttps:\/\/(\w+.){2,4}\z/, message: 'Ensure your url starts with https://' 
-    
+
+    scope :deleted, -> {
+        PaperTrail::Version.
+            where(event: 'destroy', item_type: 'ServerMonitor'). 
+            joins("LEFT JOIN server_monitors ON item_id=server_monitors.id").
+            where("server_monitors.id IS NULL"). 
+            select("distinct versions.item_id, versions.created_at, *").order('versions.created_at DESC')
+    }
+
+    scope :is_enabled, -> {
+        ServerMonitor.where(enabled: true)
+    }
+
+    scope :is_disabled, -> {
+        ServerMonitor.where(enabled: false)
+    }
+
     def is_updated?
         self.server_versions.exists?(latest: true)
     end

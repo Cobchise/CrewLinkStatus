@@ -41,21 +41,13 @@
             <li class="nav-item <%= 'active' if current_page?(dashboard_index_path) %>">
               <a class="nav-link" href="/dashboard"><%= fa_icon "tools" %> Admin</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item ">
               <a class="nav-link" href="/sidekiq"><%= fa_icon "chart-line" %> Sidekiq</a>
             </li>
           </ul>
           <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-            <li class="nav-item dropdown bg-dark active">
-              <a class="nav-link dropdown-toggle text-info" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="sr-only">(current)</span>
-                <%= fa_icon 'user-circle' %>
-              </a>
-              <div class="dropdown-menu dropdown-menu-right bg-dark" aria-labelledby="navbarDropdown">
-                <p class="dropdown-item"><%= current_user.email %></p>
-                <div class="dropdown-divider"></div>
-                <%= link_to "Log out", destroy_session_path(current_user), method: :delete, data: { confirm: "Are you sure?" }, class: "dropdown-item" %>
-              </div>
+            <li class="nav-item">
+              <%= link_to fa_icon("sign-out-alt"), destroy_session_path(current_user), method: :delete, data: { confirm: "Are you sure?" }, class: "text-info" %>
             </li>
           </ul>
         </div>
