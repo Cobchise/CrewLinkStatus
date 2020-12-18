@@ -26,8 +26,12 @@
             <div class="col-md-10">
                 <%= search_form_for @search, url: dashboard_index_path, class: "form-inline" do |f| %>
                     <%= f.search_field :name_or_url_cont, class: "form-control mr-1 ml-auto" %>
-                    <%= f.submit class: "btn btn-sm btn-outline-info mr-1" %>
-                    <%= link_to "Reset Search", dashboard_index_path, class: "btn btn-sm btn-outline-warning" %>
+                    <%= button_tag type: "submit", class: "btn btn-sm btn-outline-info mr-1" do %>
+                        <%= fa_icon "search" %> Search
+                    <% end %>
+                    <%= link_to dashboard_index_path, class: "btn btn-sm btn-outline-warning" do %>
+                        <%= fa_icon "ban" %> Reset Search
+                    <% end %>
                 <% end %>
             </div>
         </div>

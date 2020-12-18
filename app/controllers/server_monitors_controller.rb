@@ -44,7 +44,8 @@ class ServerMonitorsController < ApplicationController
 
     def destroy
         @monitor.destroy
-        flash[:success] = "Successfully destroyed #{@monitor.name}"
+        flash[:success] = "Successfully removed #{@monitor.name}"
+        redirect_to dashboard_index_path
     end
 
     def update_monitor
