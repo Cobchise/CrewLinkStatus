@@ -57,6 +57,8 @@
 * [Ruby](https://www.ruby-lang.org/en/)
 * [Rails](https://rubyonrails.org/)
 * [Postgresql](https://www.postgresql.org/)
+* [Redis](https://redis.io/)
+* [Sidekiq](https://sidekiq.org/)
 
 ## Getting Started
 
