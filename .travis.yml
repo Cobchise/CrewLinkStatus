@@ -1,0 +1,13 @@
+language: ruby
+rvm:
+  - 2.7.2
+script:
+  - bundle exec rake db:create
+  - bundle exec rake db:migrate
+  - bundle exec rspec
+services:
+  - postgresql 
+before_install:
+  - rm config/database.yml
+  - cp config/database.travis.yml config/database.yml
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS CrewLinkStatus_test;'
