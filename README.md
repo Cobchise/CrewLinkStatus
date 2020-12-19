@@ -1,7 +1,7 @@
 [![GPL-3.0 License][license-shield]][license-url] 
-[![Build Status][travis-shield]](travis-url)
-[![codecov][codecov-shield]](codecov-url)
-[![Maintainability][codeclimate-shield]](codeclimate-url)
+[![Build Status][travis-shield]][travis-url]
+[![codecov][codecov-shield]][codecov-url]
+[![Maintainability][codeclimate-shield]][codeclimate-url]
 
 <br />
 <p align="center">
