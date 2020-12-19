@@ -1,4 +1,7 @@
-[![GPL-3.0 License][license-shield]][license-url]
+[![GPL-3.0 License][license-shield]][license-url] 
+[![Build Status][travis-shield]](travis-url)
+[![codecov][codecov-shield]](codecov-url)
+[![Maintainability][codeclimate-shield]](codeclimate-url)
 
 <br />
 <p align="center">
@@ -117,3 +120,9 @@ Cobchise - [@cobchise_sec](https://twitter.com/cobchise_sec)
 
 [license-shield]: https://img.shields.io/github/license/Cobchise/CrewLinkStatus.svg?style=flat-square 
 [license-url]: https://github.com/Cobchise/CrewLinkStatus/blob/master/LICENSE
+[travis-shield]: https://travis-ci.com/Cobchise/CrewLinkStatus.svg?branch=master
+[travis-url]: https://travis-ci.com/Cobchise/CrewLinkStatus
+[codecov-shield]: https://codecov.io/gh/Cobchise/CrewLinkStatus/branch/master/graph/badge.svg?token=B5UZAD6PHT
+[codecov-url]: https://codecov.io/gh/Cobchise/CrewLinkStatus
+[codeclimate-shield]: https://api.codeclimate.com/v1/badges/d21c349c01d153346333/maintainability
+[codeclimate-url]: https://codeclimate.com/github/Cobchise/CrewLinkStatus/maintainability

@@ -33,7 +33,9 @@ class ServerMonitor < ApplicationRecord
         userCount = {}
         self.versions.each do |v|
             data = v.reify 
-            userCount[data.updated_at] = data.current_users
+            unless data.nil?
+                userCount[data.updated_at] = data.current_users
+            end
         end
         userCount
     end
@@ -42,9 +44,11 @@ class ServerMonitor < ApplicationRecord
         maxUserCount = {}
         self.versions.each do |v|
             temp = v.reify
-            maxUserCount[v.created_at] = temp.current_users
+            unless temp.nil?
+                maxUserCount[v.created_at] = temp.current_users
+            end
         end
 
-        maxUserCount.group_by_hour_of_day { |k, v| k }.map { |k, v| [k, v.map(&:last).max] }
+        maxUserCount.empty? ? nil : maxUserCount.group_by_hour_of_day { |k, v| k }.map { |k, v| [k, v.map(&:last).max] }
     end
 end

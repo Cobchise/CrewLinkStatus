@@ -1,0 +1,16 @@
+language: ruby
+rvm:
+  - 2.7.2
+cache:
+  - bundler
+  - yarn
+script:
+  - bundle exec rake db:create
+  - bundle exec rake db:migrate
+  - bundle exec rspec
+services:
+  - postgresql 
+before_install:
+  - rm config/database.yml
+  - cp config/database.travis.yml config/database.yml
+  - psql -c 'create database CrewLinkStatus_test;' -U postgres
