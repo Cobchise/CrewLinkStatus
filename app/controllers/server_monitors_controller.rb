@@ -2,6 +2,7 @@ class ServerMonitorsController < ApplicationController
     before_action :set_monitor, only: [:show, :update, :update_monitor, :edit, :destroy]
     before_action :set_server_types, only: [:new, :create, :edit, :update]
     before_action :set_regions, only: [:new, :create, :edit, :update]
+    before_action :authenticate_user!
 
     def index
     end
